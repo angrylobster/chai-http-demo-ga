@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed:dev": "node src/db/seed/index.js",
     "seed:test": "NODE_ENV=test node src/db/seed/index.js",
     "test": "NODE_ENV=test jest"
   },
