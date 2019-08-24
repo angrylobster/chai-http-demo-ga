@@ -1,5 +1,5 @@
-const postgres = require('./postgres');
+const db = require('./postgres');
 
 module.exports = {
-    postgres
+    db
 };

@@ -7,6 +7,7 @@ const USERS = {
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     )`,
     DROP_TABLE_IF_EXISTS: 'DROP TABLE IF EXISTS users',
+    FIND_ALL: 'SELECT * FROM users',
     INSERT:
         'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *'
 };
