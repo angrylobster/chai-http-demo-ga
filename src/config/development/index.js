@@ -1,6 +1,6 @@
-const test = {
+const development = {
     db: {
-        database: 'testdb',
+        database: 'developmentdb',
         host: 'localhost',
         idleTimeoutMillis: 100,
         password: 'abc123',
@@ -9,4 +9,4 @@ const test = {
     }
 };
 
-module.exports = test;
+module.exports = development;

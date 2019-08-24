@@ -4,10 +4,14 @@ const pool = new Pool(config.db);
 
 async function query(queryString = '', params = []) {
     const results = await pool.query(queryString, params);
-    await pool.end();
     return results;
 }
 
+async function end() {
+    await pool.end();
+}
+
 module.exports = {
+    end,
     query
 };
