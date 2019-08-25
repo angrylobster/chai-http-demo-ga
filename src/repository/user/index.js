@@ -6,7 +6,17 @@ async function findAll() {
     return result.rows;
 }
 
+async function insert(username = '', email = '', password = '') {
+    const result = await db.query(QUERIES.USERS.INSERT, [
+        username,
+        email,
+        password
+    ]);
+    return result.rows;
+}
+
 module.exports = {
     end: db.end,
-    findAll
+    findAll,
+    insert
 };

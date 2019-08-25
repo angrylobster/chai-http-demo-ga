@@ -17,6 +17,15 @@ module.exports = {
         indent: ['error', 4],
         'linebreak-style': ['error', 'unix'],
         quotes: ['error', 'single'],
-        semi: ['error', 'always']
+        semi: ['error', 'always'],
+        'object-curly-newline': [
+            'error',
+            {
+                ObjectExpression: 'always',
+                ObjectPattern: { multiline: true },
+                ImportDeclaration: 'never',
+                ExportDeclaration: { multiline: true, minProperties: 3 }
+            }
+        ]
     }
 };

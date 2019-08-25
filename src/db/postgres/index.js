@@ -1,10 +1,17 @@
 const { Pool } = require('pg');
-const { config } = require('../../config');
+const config = require('../../config');
 const pool = new Pool(config.db);
 
 async function query(queryString = '', params = []) {
-    const results = await pool.query(queryString, params);
-    return results;
+    const client = await pool.connect();
+    try {
+        if (config.env === 'test') await client.query('BEGIN');
+        const results = await client.query(queryString, params);
+        return results;
+    } finally {
+        if (config.env === 'test') await client.query('ROLLBACK');
+        client.release();
+    }
 }
 
 async function end() {

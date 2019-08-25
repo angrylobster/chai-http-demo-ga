@@ -4,13 +4,21 @@ const users = [
         email: 'johnsmith@gmail.com',
         password: 'IamJohnSmith'
     },
-    { username: 'awongh', email: 'akira@ga.com', password: 'iLoveBananas' },
+    {
+        username: 'awongh',
+        email: 'akira@ga.com',
+        password: 'iLoveBananas'
+    },
     {
         username: 'Khaikhai',
-        email: 'iwanttogokhaikhai@gmail.com',
+        email: 'khai@ga.com',
         password: 'khai123'
     },
-    { username: 'herda', email: 'herdaherda@ga.com', password: 'herdaaaa' },
+    {
+        username: 'herda',
+        email: 'herda@ga.com',
+        password: 'herdaaaa'
+    },
     {
         username: 'dubiousGuy',
         email: 'superSuspicious@scam.com',
