@@ -6,7 +6,7 @@ async function query(queryString = '', params = []) {
     const client = await pool.connect();
     try {
         if (config.env === 'test') await client.query('BEGIN');
-        const results = await client.query(queryString, params);
+        const { rows: results } = await client.query(queryString, params);
         return results;
     } finally {
         if (config.env === 'test') await client.query('ROLLBACK');

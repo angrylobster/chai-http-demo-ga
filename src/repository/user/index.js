@@ -1,22 +1,21 @@
 const { QUERIES } = require('../../constants');
 const { db } = require('../../db');
 
-async function findAll() {
-    const result = await db.query(QUERIES.USERS.FIND_ALL);
-    return result.rows;
+function deleteUser(id) {
+    return db.query(QUERIES.USERS.DELETE, [id]);
 }
 
-async function insert(username = '', email = '', password = '') {
-    const result = await db.query(QUERIES.USERS.INSERT, [
-        username,
-        email,
-        password
-    ]);
-    return result.rows;
+function findAll() {
+    return db.query(QUERIES.USERS.FIND_ALL);
+}
+
+function insertUser(username = '', email = '', password = '') {
+    return db.query(QUERIES.USERS.INSERT, [username, email, password]);
 }
 
 module.exports = {
+    deleteUser,
     end: db.end,
     findAll,
-    insert
+    insertUser
 };

@@ -17,7 +17,7 @@ describe('User Repository', () => {
 
     describe('.insert()', () => {
         it('should insert a user into the users table', async () => {
-            const results = await userRepository.insert(
+            const results = await userRepository.insertUser(
                 'angrylobster',
                 'shan@shan.com',
                 'abc123'
@@ -26,6 +26,16 @@ describe('User Repository', () => {
                 .to.be.an('array')
                 .with.lengthOf(1);
             expect(results[0].username).to.equal('angrylobster');
+        });
+    });
+
+    describe('.delete()', () => {
+        it('should delete a user from the users table', async () => {
+            const results = await userRepository.deleteUser(5);
+            expect(results)
+                .to.be.an('array')
+                .with.lengthOf(1);
+            expect(results[0].username).to.equal('dubiousGuy');
         });
     });
 });

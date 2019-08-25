@@ -7,7 +7,7 @@ describe('Postgres', () => {
     describe('.query()', () => {
         it('should be able to query "SELECT 1=1" with 1 result', async () => {
             const results = await db.query('SELECT 1=1');
-            expect(results.rows)
+            expect(results)
                 .to.be.an('array')
                 .with.lengthOf(1);
         });

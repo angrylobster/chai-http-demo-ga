@@ -6,6 +6,7 @@ const USERS = {
         password VARCHAR(15) NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     )`,
+    DELETE: 'DELETE FROM users WHERE id=$1 RETURNING *',
     DROP_TABLE_IF_EXISTS: 'DROP TABLE IF EXISTS users',
     FIND_ALL: 'SELECT * FROM users',
     INSERT:
