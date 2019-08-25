@@ -1,5 +1,6 @@
 const user = require('./user');
 
 module.exports = {
-    user
+    user,
+    dropConnection: user.dropConnection
 };

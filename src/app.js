@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const { dropConnection } = require('./controllers/user');
+const { dropConnection } = require('./controllers');
 const DEFAULT_PORT = 3000;
 app.use(bodyParser.json());
 
