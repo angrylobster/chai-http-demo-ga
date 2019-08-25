@@ -1,7 +1,6 @@
 const { db } = require('..');
 const { QUERIES } = require('../../constants');
 const { users } = require('./data');
-const config = require('../../config');
 
 (async () => {
     await db.query(QUERIES.USERS.DROP_TABLE_IF_EXISTS);
@@ -13,5 +12,5 @@ const config = require('../../config');
         })
     );
     await db.end();
-    console.log(`Successfully seeded ${config.db.database}!`);
+    console.log('Successfully seeded database!');
 })();

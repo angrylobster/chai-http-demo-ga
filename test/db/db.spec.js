@@ -2,7 +2,7 @@ const { db } = require('../../src/db');
 const { expect } = require('chai');
 
 describe('Postgres', () => {
-    afterAll(db.end);
+    afterAll(db.dropConnection);
 
     describe('.query()', () => {
         it('should be able to query "SELECT 1=1" with 1 result', async () => {

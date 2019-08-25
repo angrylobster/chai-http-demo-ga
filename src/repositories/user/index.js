@@ -15,7 +15,7 @@ function insertUser(username = '', email = '', password = '') {
 
 module.exports = {
     deleteUser,
-    end: db.end,
+    dropConnection: db.dropConnection,
     findAll,
     insertUser
 };

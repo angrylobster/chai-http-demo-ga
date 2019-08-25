@@ -14,11 +14,11 @@ async function query(queryString = '', params = []) {
     }
 }
 
-async function end() {
-    await pool.end();
+function dropConnection() {
+    pool.end();
 }
 
 module.exports = {
-    end,
+    dropConnection,
     query
 };

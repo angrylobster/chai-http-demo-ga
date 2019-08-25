@@ -1,10 +1,8 @@
-const { userRepository } = require('../../../src/repository');
+const { user: userRepository } = require('../../src/repositories');
 const { expect } = require('chai');
 
 describe('User Repository', () => {
-    afterAll(async () => {
-        await userRepository.end();
-    });
+    afterAll(userRepository.dropConnection);
 
     describe('.findAll()', () => {
         it('should retrieve an array of users', async () => {
@@ -15,7 +13,7 @@ describe('User Repository', () => {
         });
     });
 
-    describe('.insert()', () => {
+    describe('.insertUser()', () => {
         it('should insert a user into the users table', async () => {
             const results = await userRepository.insertUser(
                 'angrylobster',
@@ -29,7 +27,7 @@ describe('User Repository', () => {
         });
     });
 
-    describe('.delete()', () => {
+    describe('.deleteUser()', () => {
         it('should delete a user from the users table', async () => {
             const results = await userRepository.deleteUser(5);
             expect(results)
