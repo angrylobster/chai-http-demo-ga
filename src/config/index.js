@@ -7,6 +7,9 @@ const config = {
         password: 'abc123',
         port: 5432,
         user: 'shan'
+    },
+    server: {
+        port: 3000
     }
 };
 

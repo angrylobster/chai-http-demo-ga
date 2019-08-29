@@ -1,7 +1,7 @@
 const { user: userController } = require('../controllers');
 
-module.exports = app => {
-    app.get('/users', userController.findAll);
-    app.post('/users', userController.insertUser);
-    app.delete('/users', userController.deleteUser);
+module.exports = server => {
+    server.get('/users', userController.findAll);
+    server.post('/users', userController.insertUser);
+    server.delete('/users', userController.deleteUser);
 };

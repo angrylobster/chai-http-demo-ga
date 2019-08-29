@@ -2,13 +2,13 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { expect } = chai;
-const { app, dropConnection } = require('../../src/app');
+const { server, dropConnection } = require('../../src/server');
 
 describe('User API', () => {
     afterAll(dropConnection);
     describe('GET "/users', () => {
         it('should have a status of 200', done => {
-            chai.request(app)
+            chai.request(server)
                 .get('/users')
                 .end((err, res) => {
                     expect(res).to.have.status(200);
@@ -17,7 +17,7 @@ describe('User API', () => {
         });
 
         it('should return a response.body with the key "data"', done => {
-            chai.request(app)
+            chai.request(server)
                 .get('/users')
                 .end((err, res) => {
                     expect(res.body).to.have.any.keys('data');
@@ -26,7 +26,7 @@ describe('User API', () => {
         });
 
         it('should return a response.body with "data" of array with length 5', done => {
-            chai.request(app)
+            chai.request(server)
                 .get('/users')
                 .end((err, res) => {
                     expect(res.body.data)
@@ -39,7 +39,7 @@ describe('User API', () => {
 
     describe('POST /users', () => {
         it('should insert user if the request.body contains the correct data', done => {
-            chai.request(app)
+            chai.request(server)
                 .post('/users')
                 .send({
                     username: 'superUser',
@@ -59,7 +59,7 @@ describe('User API', () => {
 
     describe('DELETE /users', () => {
         it('should delete user if the request.body contains the correct data', done => {
-            chai.request(app)
+            chai.request(server)
                 .delete('/users')
                 .send({
                     id: 2
