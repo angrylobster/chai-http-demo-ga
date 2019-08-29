@@ -4,9 +4,9 @@ const config = {
     db: {
         database: 'mydb',
         host: 'localhost',
-        password: 'abc123',
+        password: 'password',
         port: 5432,
-        user: 'shan'
+        user: 'user'
     },
     server: {
         port: 3000
