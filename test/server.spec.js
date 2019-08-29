@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { expect } = chai;
-const { server, dropConnection } = require('../../src/server');
+const { server, dropConnection } = require('../src/server');
 
 describe('User API', () => {
     afterAll(dropConnection);
