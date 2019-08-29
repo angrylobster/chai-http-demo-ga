@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const server = express();
-const { dropConnection } = require('./controllers');
 const config = require('./config');
-server.use(bodyParser.json());
+const { dropConnection } = require('./controllers');
+const { userRouter } = require('./routers');
 
-require('./router')(server);
+server.use(bodyParser.json());
+server.use('/users', userRouter);
 
 if (process.env.NODE_ENV !== 'test') {
     server.listen(config.server.port, () =>
